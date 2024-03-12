@@ -1,0 +1,36 @@
+nav {
+    background-color: white;
+    font-family: Silkscreen;
+    font-size: 23px;
+    border-bottom: 2px solid black;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.nav-item a:hover{
+    color: #234a77;
+    text-decoration: underline;
+}
+
+.logo{
+    width: 77px;
+    height: 70px;
+}
+
+body{
+    font-family: Roboto;
+}
+
+footer{
+    text-align: center;
+    background-color: #234a77;
+    color: #fff;
+    padding: 18px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p{
+    margin-bottom: 0;
+}
