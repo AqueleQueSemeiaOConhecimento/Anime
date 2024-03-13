@@ -12,3 +12,6 @@ Route::get('/dashboard', [RotasController::class, 'favorito'])->middleware('auth
 Route::get('/admin', [RotasController::class, 'admin'])->middleware('auth');
 
 Route::post('/store/anime', [AnimeController::class, 'store'])->middleware('auth');
+
+Route::get('/genero/anime', [RotasController::class, 'genero']);
+

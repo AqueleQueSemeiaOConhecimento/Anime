@@ -10,7 +10,8 @@ class Anime extends Model
     use HasFactory;
 
     protected $casts = [
-        'genero' => 'array'
+        'genero' => 'array',
+        'generos_pesquisados' => 'array'
     ];
 
     protected $dates = ['date'];

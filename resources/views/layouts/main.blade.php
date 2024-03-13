@@ -40,7 +40,7 @@
 
                     <!-- Os gênero dos animes -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Gêneros</a>
+                        <a href="/genero/anime" class="nav-link">Gêneros</a>
                     </li>
 
                     @auth
