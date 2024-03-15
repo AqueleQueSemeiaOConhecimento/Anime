@@ -24,6 +24,8 @@
         <label for="option2">Artes Marciais</label><br>
         <input type="checkbox" id="option3" name="genero[]" value="Aventura">
         <label for="option3">Aventura</label><br><br>
+        <input type="checkbox" id="option4" name="genero[]" value="Comédia">
+        <label for="option3">Comédia</label><br><br>
 
         <label for="image">Imagem:</label>
         <input type="file" id="image" name="image" accept="image/*">br

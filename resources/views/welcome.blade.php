@@ -26,7 +26,21 @@
             <h4>{{$anime->title}}</h4>
             <img src="/img/image_tumb/{{$anime->image}}"  class="img-box" alt="{{$anime->title}}">
             <br>
-            <a href="#"> Veja agora</a>
+            <a href="#" 
+            class="btn btn-primary" 
+            id="event-submit"
+            onclick="event.preventDefault();
+            this.closest('form').submit();">Veja agora</a><br>
+
+            <form action="/anime/favoritar/{{$anime->id}}" method="POST">
+                @csrf   
+                <a href="/anime/favoritar/{{$anime->id}}" 
+                class="btn btn-primary" 
+                id="event-submit"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                Favoritar</a>
+            </form>
         </div>
         @endforeach
     </div>

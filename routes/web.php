@@ -15,3 +15,4 @@ Route::post('/store/anime', [AnimeController::class, 'store'])->middleware('auth
 
 Route::get('/genero/anime', [RotasController::class, 'genero']);
 
+Route::post('/anime/favoritar/{id}', [AnimeController::class, 'favoritar']);

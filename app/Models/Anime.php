@@ -19,4 +19,8 @@ class Anime extends Model
     public function episodeos() {
         return $this->hasMany('App\Models\Episodeo');
     }
+
+    public function users_favoritados() {
+        return $this->belongsToMany('App\Models\User');
+    }
 }

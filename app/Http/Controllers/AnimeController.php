@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Anime;
+use App\Models\User;
 
 class AnimeController extends Controller
 {
@@ -34,4 +35,16 @@ class AnimeController extends Controller
 
     return redirect('/')->with('msg', 'Anime criado com Sucesso');
     }
+
+    public function favoritar($id) {
+
+        $user = auth()->user();
+
+        $user->animes()->attach($id);
+
+        $anime = Anime::findOrFail($id);
+
+        return redirect('/');
+    }
+
 }

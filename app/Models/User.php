@@ -62,4 +62,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function animes() {
+        return $this->belongsToMany('App\Models\Anime');
+    }
 }
