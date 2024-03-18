@@ -37,14 +37,28 @@ class AnimeController extends Controller
     }
 
     public function favoritar($id) {
-
         $user = auth()->user();
-
-        $user->animes()->attach($id);
-
         $anime = Anime::findOrFail($id);
+    
+        // Verificar se o usuário já favoritou este anime
+        if ($user->animes()->where('anime_id', $id)->exists()) {
+            return redirect('/')->with('msg', 'Você já favoritou este anime.');
+        }
+    
+        $user->animes()->attach($id);
+    
+        return redirect('/')->with('msg', 'Anime favoritado com sucesso.');
+    }
+    
 
-        return redirect('/');
+    public function leaveAnime($id) {
+            $user = auth()->user();
+        
+            $user->animes()->detach($id);
+        
+            $anime = Anime::findOrFail($id);
+        
+            return redirect('/')->with('msg', 'Você saiu com sucesso do evento ') . $anime->title;
     }
 
 }

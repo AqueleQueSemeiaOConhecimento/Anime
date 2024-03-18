@@ -9,6 +9,8 @@ class Anime extends Model
 {
     use HasFactory;
 
+    protected $table = 'animes';
+
     protected $casts = [
         'genero' => 'array',
         'generos_pesquisados' => 'array'
@@ -17,7 +19,7 @@ class Anime extends Model
     protected $dates = ['date'];
 
     public function episodeos() {
-        return $this->hasMany('App\Models\Episodeo');
+        return $this->hasMany(Episodeo::class);
     }
 
     public function users_favoritados() {

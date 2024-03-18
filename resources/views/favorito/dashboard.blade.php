@@ -13,7 +13,15 @@
                 <h4>{{$anime->title}}</h4>
                 <img src="/img/image_tumb/{{$anime->image}}"  class="img-box" alt="{{$anime->title}}">
                 <br>
-                <a href="#"> Veja agora</a>
+                <a href="#" class="btn btn-primary"> Veja agora</a>
+
+                <form action="/anime/desfavoritar/{{$anime->id}}" method="POST">
+                @csrf 
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger delete-btn">
+                    Desfavoritar
+                </button>
+            </form>
             </div>
             @endforeach
         </div>

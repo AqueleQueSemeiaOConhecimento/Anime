@@ -1,14 +1,16 @@
+body{
+    background-color: #061d38;
+}
+
 nav {
-    background-color: white;
+    background-color: #5838af;
     font-family: Silkscreen;
     font-size: 23px;
     border-bottom: 2px solid black;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
 }
 
 .nav-item a:hover{
-    color: #234a77;
+    color: #d4edda;
     text-decoration: underline;
 }
 
@@ -37,13 +39,70 @@ footer p{
 
 .card{
     padding: 20px;
-    margin: 0;
+    margin: 1%;
     border: transparent;
     border-radius: 12px;
-
+    background-color: #234a77;
+    width: 23%;
 }
 
 .img-box{
-    width: 300px;
-    height: 420px;
+    width: 100%;
+    height: 450px;
+    border-radius: 7px;
 }
+
+.msg{
+    background-color: #d4edda;
+    color: #155724;
+    border: solid 1px #c3e6cb;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+.btn {
+    width: 100%;
+}
+
+.btn-box{
+    padding: 10px;
+    background-color: #c3e6cb;
+}
+
+.btn-box:hover{
+    background-color: #5838af;
+}
+
+.btn-green {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    width: 100%;
+}
+
+.btn-green:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-danger {
+    width: 100%;
+}
+
+h3 {
+
+    text-align: center;
+    margin: 0px;
+    padding: 20px;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    background-color: #28a745;
+}
+
+h1, label{
+    color: #28a745;
+}
+

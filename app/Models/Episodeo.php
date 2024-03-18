@@ -9,7 +9,9 @@ class Episodeo extends Model
 {
     use HasFactory;
 
+    protected $table = 'episodeos';
+
     public function anime() {
-        return $this->belongsTo('App\Models\Anime');
+        return $this->belongsTo(Anime::class, 'anime');
     }
 }
