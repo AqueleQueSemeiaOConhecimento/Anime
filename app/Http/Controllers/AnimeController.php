@@ -8,6 +8,7 @@ use App\Models\User;
 
 class AnimeController extends Controller
 {
+    // função de criar o anime com todos os dados
     public function store(Request $request) {
         $anime_creat = new Anime;
         $anime_creat->title = $request->title;
@@ -16,7 +17,7 @@ class AnimeController extends Controller
         $anime_creat->genero = $request->genero;
 
         
-    // Image Upload
+    // Validação da imagem
     if($request->hasFile('image') && $request->file('image')->isValid()){
 
         $request_image = $request->image;
@@ -31,12 +32,15 @@ class AnimeController extends Controller
 
     }
 
+    // salva e retorna da raiz
     $anime_creat->save();
 
     return redirect('/')->with('msg', 'Anime criado com Sucesso');
     }
 
+    // função que cuida de favoritar
     public function favoritar($id) {
+        // pega o id do usuario autentificado junto com o id do anime
         $user = auth()->user();
         $anime = Anime::findOrFail($id);
     
@@ -45,20 +49,25 @@ class AnimeController extends Controller
             return redirect('/')->with('msg', 'Você já favoritou este anime.');
         }
     
+        // Se o usuario não favoritou o anime entao ele faz um vinculo com id do
+        // usuario com o id do anime
         $user->animes()->attach($id);
     
         return redirect('/')->with('msg', 'Anime favoritado com sucesso.');
     }
     
 
+    // função pra desfavoritar o anime
     public function leaveAnime($id) {
+            // pega o usuario autentificado
             $user = auth()->user();
         
+            // desvincula usuario com anime
             $user->animes()->detach($id);
         
             $anime = Anime::findOrFail($id);
         
-            return redirect('/')->with('msg', 'Você saiu com sucesso do evento ') . $anime->title;
+            return redirect('/')->with('msg', 'Você desfavoritou o anime com sucesso ') . $anime->title;
     }
 
 }

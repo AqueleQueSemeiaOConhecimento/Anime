@@ -12,6 +12,8 @@ class Episodeo extends Model
     protected $table = 'episodeos';
 
     public function anime() {
-        return $this->belongsTo(Anime::class, 'anime');
+        return $this->belongsTo(Anime::class, 'anime_id');
     }
+
+    protected $fillable = ['title', 'description', 'video'];
 }

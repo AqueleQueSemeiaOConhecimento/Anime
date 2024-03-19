@@ -6,30 +6,28 @@ use Illuminate\Http\Request;
 use App\Models\Anime;
 use App\Models\User;
 use App\Models\Episodeo;
+use App\Http\Controllers\RotasController;
 
 class EpisodeoController extends Controller
 {
+    // retorna rota de episodeos do anime
     public function episodeos_anime($id) {
         $anime = Anime::findOrFail($id);
-        return view('/episodeos', ['anime' => $anime]);
+        $episodeos = $anime->episodeos;
+        return view('/episodeos', ['anime' => $anime, 'episodeos' => $episodeos]);
     }
 
+    // link que leva pro formulario de criação do episodeo
     public function form_ep($id) {
         $anime = Anime::findOrFail($id);
         return view('/crud_episodeo', ['anime' => $anime]);
     }
 
+    // formularo de adicionar episodeo
     public function adicionar_episodeo(Request $request){
-        $request->validate([
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'video' => 'required|file|mimes:mp4,mov,avi|max:100240', // ajuste o tamanho do vídeo conforme necessário
-            'anime_id' => 'required|exists:animes,id',
-        ]);
-
-
+     
         $episodeo = new Episodeo();
-        $episodeo->title = $request->title;
+        $episodeo->titulo = $request->titulo;
         $episodeo->description = $request->description;
 
         if($request->hasFile('video') && $request->file('video')->isValid()){
@@ -42,7 +40,7 @@ class EpisodeoController extends Controller
     
             $request->file('video')->move(public_path('img/episodeos'), $episodeo_nome);
     
-            $episodeo->episodeo = $episodeo_nome;
+            $episodeo->video = $episodeo_nome;
         }
 
         $anime = Anime::findOrFail($request->anime_id);

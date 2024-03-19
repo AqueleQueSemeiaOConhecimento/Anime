@@ -92,7 +92,7 @@ footer p{
     width: 100%;
 }
 
-h3 {
+h3{
 
     text-align: center;
     margin: 0px;
@@ -102,7 +102,19 @@ h3 {
     background-color: #28a745;
 }
 
+h4{
+    color: #28a745; 
+}
+
 h1, label{
     color: #28a745;
 }
 
+.box{
+    width: 150px;
+}
+
+.img-anime{
+    width: 300px;
+    height: 100px;
+}

@@ -27,7 +27,15 @@
             <h4>{{$anime->title}}</h4>
             <img src="/img/image_tumb/{{$anime->image}}"  class="img-box" alt="{{$anime->title}}">
             <br>
-            <a href="#"> Veja agora</a>
+            <form action="/episodeos/{{$anime->id}}" method="GET">
+                @csrf   
+                <a href="/episodeos/{{$anime->id}}" 
+                class="btn btn-primary" 
+                id="event-submit"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                Veja mais</a>
+            </form>
         </div>
         @endforeach
     </div>

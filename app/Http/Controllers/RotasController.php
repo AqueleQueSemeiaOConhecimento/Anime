@@ -8,8 +8,10 @@ use App\Models\User;
 
 class RotasController extends Controller
 {
+    // função que cuida da raiz
     public function index() {
 
+        // pesquisa por anime
         $search = request('search');
 
         if($search) {
@@ -19,6 +21,7 @@ class RotasController extends Controller
             ])->get();
 
         }
+
         else{
             $animes = Anime::all();
         }
@@ -27,6 +30,7 @@ class RotasController extends Controller
         return view('welcome', ['animes' => $animes, 'search' => $search]);
     }
 
+    // rota que retorna os animes favoritados pelo usuario
     public function favorito() {
         $user = auth()->user();
 
@@ -35,22 +39,12 @@ class RotasController extends Controller
         return view('favorito.dashboard', ['animes_favoritados' => $animes_favoritados]);
     }
 
-
-    // public function dashboard() {
-    //     $user = auth()->user();
-    
-    //     $events = $user->events;
-    
-    //     $eventAsParticipant = $user->eventAsParticipant;
-    
-    //     return view('events.dashboard', ['events' => $events, 'eventasparticipant' => $eventAsParticipant]);
-    // }
-
-
+    // retorna a view crud
     public function admin() {
         return view('crud');
     }
 
+    // pesquisa de animes por genero
     public function genero() {
         $get_generos = request('generos_pesquisados');
     
