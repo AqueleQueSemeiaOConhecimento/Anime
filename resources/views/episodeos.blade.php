@@ -19,6 +19,7 @@
     <thead>
         <tr>
             <th scope="col">Episódio</th>
+            <th scope="col">Titulo</th>
             <th scope="col">Descrição</th>
             @if(auth()->check() && auth()->user()->id === 1)
             <th scope="col">Ações</th>
@@ -34,14 +35,22 @@
                     <img src="/img/anime.jpg" class="img-anime">
                 </a>
             </td>
+            <td>
+                {{$episodio->titulo}}
+            </td>
             <td>{{ $episodio->description }}</td>
             @if(auth()->check() && auth()->user()->id === 1)
             <td>
-                <a href="#" class="btn btn-danger">
-                    <i class="fas fa-trash-alt"></i> <!-- Ícone do botão de exclusão -->
+                <form action="/episodeos/delete/{{$episodio->id}}" method="post">
+                    @csrf 
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i>
                     Excluir
-                </a>
-                <a href="#" class="btn btn-success ml-2">
+                    </button>
+                </form>
+
+                <a href="/edit/episode/{{$episodio->id}}" class="btn btn-success ml-2">
                     <i class="fas fa-edit"></i> <!-- Ícone do botão de edição -->
                     Editar
                 </a>

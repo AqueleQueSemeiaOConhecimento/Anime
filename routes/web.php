@@ -26,3 +26,8 @@ Route::get('/crud_episodeo/{id}', [EpisodeoController::class, 'form_ep'])->middl
 
 Route::post('/add/episodeo', [EpisodeoController::class, 'adicionar_episodeo'])->middleware('auth');
 
+Route::delete('/episodeos/delete/{id}', [EpisodeoController::class, 'delete_episodeo'])->middleware('auth');
+
+Route::get('/edit/episode/{id}', [EpisodeoController::class, 'edit_episodeo'])->middleware('auth');
+
+Route::put('/editar/ep/{id}', [EpisodeoController::class, 'update'])->middleware('auth');
